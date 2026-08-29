@@ -1,0 +1,73 @@
+export const EXPERIENCE_HERO = {
+  label: "The Experience",
+  headline: ["A Higher", "Standard,", "Made Physical."],
+  image: "/images/experience/herobanner.png",
+} as const;
+
+export const EXPERIENCE_SECTIONS = [
+  {
+    id: "philosophy",
+    num: "01",
+    title: "The Philosophy",
+    body: "Titanium Prime represents a new standard of hospitality where dining, culture, architecture, and storytelling converge.",
+    cta: "Our Vision",
+    ctaHref: "#philosophy",
+    layout: "philosophy" as const,
+    image: "/images/experience/sectiontwoimage.png",
+    imageAlt: "Titanium Prime emblem on textured wall",
+  },
+  {
+    id: "arrival",
+    num: "02",
+    title: "The Arrival",
+    body: "The experience begins before the first course.",
+    cta: "Step Inside",
+    ctaHref: "#arrival",
+    layout: "arrival" as const,
+    image: "/images/experience/thirdsection.png",
+    imageAlt: "The arrival experience",
+  },
+  {
+    id: "room",
+    num: "03",
+    title: "The Room",
+    headline: ["Steel.", "Stone.", "Light."],
+    cta: "Explore the Space",
+    ctaHref: "#room",
+    layout: "room" as const,
+    image: "/images/experience/foursection.png",
+    imageAlt: "Steel, stone and light",
+  },
+  {
+    id: "service",
+    num: "04",
+    title: "The Service",
+    body: "Hospitality is in the details. Anticipation without intrusion. Discretion. Personalization. Every moment, considered.",
+    cta: "Our Promise",
+    ctaHref: "#service",
+    layout: "service" as const,
+    image: "/images/experience/sectionfive.png",
+    imageAlt: "Personalized hospitality",
+  },
+  {
+    id: "sound",
+    num: "05",
+    title: "The Sound",
+    body: "Music. Energy. Expression. Curated soundscapes and live moments that elevate the night and define the culture.",
+    cta: "Feel the Energy",
+    ctaHref: "#sound",
+    layout: "sound" as const,
+    image: "/images/experience/sectionsix.png",
+    imageAlt: "Music, energy and culture",
+  },
+] as const;
+
+export const EXPERIENCE_SIGNATURE = {
+  num: "06",
+  title: "The Signature",
+  brand: "Titanium Prime",
+  tagline: "Rare By Design.",
+  cta: "Join the Experience",
+  ctaHref: "#newsletter",
+  background: "/images/experience/sectionseven.png",
+} as const;

@@ -31,6 +31,10 @@ export const metadata: Metadata = {
       "A luxury hospitality and culture house where exceptional taste meets intentional experience.",
     type: "website",
   },
+  icons: {
+    icon: "/images/logo/sidelogo.png",
+    apple: "/images/logo/sidelogo.png",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

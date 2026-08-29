@@ -12,7 +12,7 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="bg-tp-black">
+    <main className="overflow-x-hidden bg-tp-black">
       <Navbar />
       <Hero />
       <CityBar />
@@ -21,8 +21,6 @@ export default function Home() {
       <FilmSection />
       <VideoStrip />
       <NightsSection />
-      <PrivateSection />
-      <Gallery />
       <Footer />
     </main>
   );

@@ -19,7 +19,6 @@ function ThinArrow() {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden
-      className="text-[#888]"
     >
       <path
         d="M0 4H14M14 4L10 1M14 4L10 7"
@@ -66,39 +65,36 @@ function XIcon() {
   );
 }
 
+const GRAIN =
+  "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")";
+
 export default function Footer() {
   const [email, setEmail] = useState("");
 
   return (
-    <footer id="newsletter" className="bg-black">
-      {/* Newsletter — Be Part of the First Chapter */}
-      <div className="relative overflow-hidden px-6 pb-12 pt-24 md:px-10 md:pb-14 md:pt-32 lg:px-14">
-        {/* subtle grain */}
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage:
-              "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
-          }}
-        />
+    <footer id="newsletter" className="relative overflow-hidden bg-black">
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.045]"
+        style={{ backgroundImage: GRAIN }}
+      />
 
-        <div className="relative mx-auto max-w-2xl text-center">
-          <h2 className="font-display whitespace-nowrap text-[1.15rem] font-medium uppercase leading-[1.2] tracking-[0.1em] text-white sm:text-[1.45rem] md:text-[2rem] md:tracking-[0.14em] lg:text-[2.15rem] lg:tracking-[0.16em]">
+      {/* Newsletter + cities */}
+      <div className="relative px-4 pb-14 pt-16 md:px-12 md:pb-24 md:pt-36 lg:px-16">
+        <div className="mx-auto flex w-full max-w-[36rem] flex-col items-stretch text-center md:w-max md:max-w-none">
+          <h2 className="metallic-text font-display text-[1.05rem] uppercase leading-[1.25] tracking-[0.08em] sm:text-[1.6rem] md:whitespace-nowrap md:text-[1.85rem] md:tracking-[0.16em] lg:text-[2.15rem] lg:tracking-[0.18em]">
             Be Part of the First Chapter
           </h2>
 
-          <p className="mx-auto mt-3 max-w-md text-[12px] font-light leading-relaxed text-[#9a9a9a] md:mt-4 md:text-[13px]">
-            Join the Private List for early access to films, events, and
-            experiences.
+          <p className="mt-5 w-full text-[13px] font-light leading-relaxed text-[#c4c4c4] md:mt-6 md:text-[14px]">
+          Join the Titanium Prime Private List for exclusive early access to original films, cultural events, private dining experiences.
           </p>
 
-          {/* Single bordered form bar */}
           <form
             onSubmit={(e) => {
               e.preventDefault();
               setEmail("");
             }}
-            className="mx-auto mt-12 flex w-full max-w-[420px] flex-col border border-[#5a5a5a] sm:mt-14 sm:flex-row sm:items-stretch"
+            className="mt-8 flex w-full flex-col overflow-hidden rounded-[5px] border border-[#3d3d3d] sm:mt-12 sm:flex-row sm:items-stretch"
           >
             <input
               type="email"
@@ -106,80 +102,74 @@ export default function Footer() {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
               required
-              className="min-w-0 flex-1 border-0 bg-transparent px-5 py-3.5 text-[13px] font-light text-white outline-none placeholder:text-[#6a6a6a] sm:py-4"
+              className="min-w-0 flex-[2] border-0 bg-transparent px-6 py-4 text-[13px] font-light text-white outline-none placeholder:text-[#6a6a6a] sm:py-[17px]"
             />
-            <div className="hidden w-px self-stretch bg-[#5a5a5a] sm:block" />
             <button
               type="submit"
-              className="shrink-0 border-t border-[#5a5a5a] bg-transparent px-6 py-3.5 font-display text-[10px] font-normal uppercase tracking-[0.2em] text-white transition-colors hover:bg-white/5 sm:border-t-0 sm:py-4 md:text-[11px]"
+              className="shrink-0 border-t border-[#3d3d3d] bg-transparent px-7 py-4 font-display text-[10px] font-medium uppercase tracking-[0.22em] text-white transition-colors hover:bg-white/[0.05] sm:border-t-0 sm:border-l sm:border-[#3d3d3d] sm:px-8 sm:py-[17px] md:text-[11px]"
             >
               Join the List
             </button>
           </form>
         </div>
 
-        {/* Cities row — full width */}
-        <div className="relative mx-auto mt-20 flex w-full max-w-6xl flex-col items-center gap-5 md:mt-24 md:flex-row md:justify-between md:gap-8">
-          <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 md:justify-start md:gap-x-5 lg:gap-x-7">
-            {CITIES.map((city, i) => (
-              <span key={city} className="flex items-center gap-3 md:gap-5 lg:gap-7">
-                {i > 0 && (
-                  <span className="text-[10px] text-[#555]" aria-hidden>
-                    •
-                  </span>
-                )}
-                <span className="font-display text-[10px] font-light uppercase tracking-[0.22em] text-[#9a9a9a] md:text-[11px] md:tracking-[0.24em]">
-                  {city}
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-x-2 gap-y-2 md:mt-20 md:gap-x-3">
+          {CITIES.map((city, i) => (
+            <span key={city} className="flex items-center gap-2 md:gap-3">
+              {i > 0 && (
+                <span className="text-[11px] text-[#8a8a8a]" aria-hidden>
+                  ·
                 </span>
+              )}
+              <span className="font-display text-[10px] font-normal uppercase tracking-[0.18em] text-[#d4d4d4] md:text-[11px] md:tracking-[0.2em]">
+                {city}
               </span>
-            ))}
-          </div>
-
-          <a
-            href="#newsletter"
-            className="group flex shrink-0 items-center gap-2.5 transition-opacity hover:opacity-70"
-          >
-            <span className="font-display text-[9px] font-light uppercase tracking-[0.2em] text-[#9a9a9a] md:text-[10px]">
-              Future Destinations
             </span>
-            <ThinArrow />
-          </a>
+          ))}
+          <span className="flex items-center gap-2 md:gap-3">
+            <span className="text-[11px] text-[#8a8a8a]" aria-hidden>
+              ·
+            </span>
+            <a
+              href="#newsletter"
+              className="inline-flex items-center gap-2 font-display text-[10px] font-normal uppercase tracking-[0.18em] text-[#d4d4d4] transition-opacity hover:opacity-70 md:text-[11px] md:tracking-[0.2em]"
+            >
+              Future Destinations
+              <ThinArrow />
+            </a>
+          </span>
         </div>
       </div>
 
-      {/* Divider */}
-      <div className="mx-6 border-t border-[#222] md:mx-12 lg:mx-16" />
-
-      {/* Main footer */}
-      <div className="px-6 py-12 md:px-12 md:py-14 lg:px-16">
-        <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
-          {/* Brand */}
-          <div className="flex shrink-0 items-center gap-3">
+      {/* 3. Brand + nav + socials */}
+      <div className="relative mx-4 border-t border-[#2a2a2a] px-0 py-10 md:mx-12 md:py-14 lg:mx-16">
+        <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
+          <div className="flex shrink-0 items-center gap-4">
             <Image
               src="/images/logo/sidelogo.png"
               alt="Titanium Prime"
-              width={36}
-              height={36}
-              className="h-8 w-auto object-contain md:h-9"
+              width={72}
+              height={72}
+              className="h-14 w-auto object-contain md:h-16"
             />
-            <Image
-              src="/images/logo/mainlogo.png"
-              alt="Titanium Prime"
-              width={160}
-              height={20}
-              className="h-3 w-auto object-contain md:h-3.5"
-            />
+            <div className="flex flex-col leading-[1.15]">
+              <span className="font-display text-[14px] font-medium uppercase tracking-[0.18em] text-white md:text-[16px]">
+                Titanium
+              </span>
+              <span className="font-display text-[14px] font-medium uppercase tracking-[0.18em] text-white md:text-[16px]">
+                Prime
+              </span>
+            </div>
           </div>
 
-          {/* Nav columns */}
-          <nav className="grid grid-cols-3 gap-x-8 gap-y-3 sm:gap-x-12 md:gap-x-16">
+          <nav className="grid grid-cols-3 gap-x-4 sm:gap-x-14 md:gap-x-20">
             {NAV_COLS.map((col, i) => (
-              <div key={i} className="flex flex-col gap-3">
+              <div key={i} className="flex flex-col gap-3.5">
                 {col.map((link) => (
                   <a
                     key={link}
                     href={`#${link.toLowerCase()}`}
-                    className="font-display text-[10px] font-light uppercase tracking-[0.16em] text-[#aaa] transition-colors hover:text-white md:text-[11px]"
+                    className="font-display text-[9px] font-normal uppercase tracking-[0.12em] text-white transition-opacity hover:opacity-60 md:text-[11px] md:tracking-[0.16em]"
                   >
                     {link}
                   </a>
@@ -188,9 +178,8 @@ export default function Footer() {
             ))}
           </nav>
 
-          {/* Social + legal */}
-          <div className="flex flex-col items-start gap-5 lg:items-end">
-            <p className="font-display text-[10px] font-light uppercase tracking-[0.18em] text-white md:text-[11px]">
+          <div className="flex shrink-0 flex-col items-start gap-4 lg:items-end">
+            <p className="font-display text-[10px] font-normal uppercase tracking-[0.18em] text-white md:text-[11px]">
               Follow the World
             </p>
             <div className="flex items-center gap-5 text-white">
@@ -207,29 +196,43 @@ export default function Footer() {
                 <XIcon />
               </a>
             </div>
-            <div className="mt-2 flex gap-5 lg:mt-6">
-              <a
-                href="#"
-                className="font-display text-[8px] font-light uppercase tracking-[0.14em] text-[#666] transition-colors hover:text-[#aaa] md:text-[9px]"
-              >
-                Privacy Policy
-              </a>
-              <a
-                href="#"
-                className="font-display text-[8px] font-light uppercase tracking-[0.14em] text-[#666] transition-colors hover:text-[#aaa] md:text-[9px]"
-              >
-                Terms of Use
-              </a>
-            </div>
           </div>
         </div>
       </div>
 
-      {/* Copyright */}
-      <div className="border-t border-[#1a1a1a] px-6 py-5 md:px-12 lg:px-16">
-        <p className="text-center text-[9px] font-light uppercase tracking-[0.12em] text-[#555]">
-          © 2024 Titanium Prime. All Rights Reserved.
+      {/* 4. Legal bar */}
+      <div className="relative mx-4 flex flex-col items-center gap-3 border-t border-[#2a2a2a] py-5 text-center md:mx-12 md:flex-row md:justify-between md:text-left lg:mx-16">
+        <div className="flex items-center gap-2">
+          <Image
+            src="/images/logo/sidelogo.png"
+            alt=""
+            width={16}
+            height={16}
+            className="h-3.5 w-auto object-contain opacity-70"
+          />
+          <span className="font-display text-[9px] font-normal uppercase tracking-[0.18em] text-[#888]">
+            Dreamit
+          </span>
+        </div>
+
+        <p className="text-[9px] font-light uppercase tracking-[0.14em] text-[#777]">
+          © 2026 Titanium Prime. All Rights Reserved.
         </p>
+
+        <div className="flex items-center gap-8">
+          <a
+            href="#"
+            className="font-display text-[9px] font-light uppercase tracking-[0.14em] text-[#888] transition-colors hover:text-white"
+          >
+            Privacy Policy
+          </a>
+          <a
+            href="#"
+            className="font-display text-[9px] font-light uppercase tracking-[0.14em] text-[#888] transition-colors hover:text-white"
+          >
+            Terms of Use
+          </a>
+        </div>
       </div>
     </footer>
   );

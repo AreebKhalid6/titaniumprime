@@ -27,17 +27,19 @@ export default function ExperienceSection() {
     <section id="experience" className="bg-black">
       <div className="flex flex-col items-stretch lg:flex-row lg:items-center">
         {/* Left — text only */}
-        <div className="relative z-10 flex w-full flex-col justify-center bg-black px-8 py-16 md:px-14 md:py-20 lg:w-[36%] lg:px-14 lg:py-12 xl:px-16">
+        <div className="relative z-10 flex w-full flex-col justify-center bg-black px-5 py-12 md:px-14 md:py-20 lg:w-[36%] lg:px-14 lg:py-12 xl:px-16">
           <p className="font-display text-[9px] font-light uppercase tracking-[0.32em] text-[#a0a0a0] md:text-[10px]">
             The Experience
           </p>
 
-          <h2 className="font-display mt-6 text-[2.5rem] font-semibold uppercase leading-[1.05] tracking-[0.08em] text-white md:mt-8 md:text-5xl lg:text-[3.25rem] xl:text-6xl">
-            Steel.
-            <br />
-            Fire.
-            <br />
-            Presence.
+          <h2 className="mt-6 w-full max-w-[240px] md:mt-8 md:max-w-[300px] lg:max-w-[340px] xl:max-w-[380px]">
+            <Image
+              src={IMAGES.steelHeading}
+              alt="Steel. Fire. Presence."
+              width={800}
+              height={600}
+              className="h-auto w-full"
+            />
           </h2>
 
           <p className="mt-8 max-w-[340px] text-[12px] font-light leading-[1.85] text-[#a0a0a0] md:mt-10 md:text-[13px] md:leading-[1.9] lg:max-w-[380px]">
@@ -47,7 +49,7 @@ export default function ExperienceSection() {
           </p>
 
           <a
-            href="#experience"
+            href="/the-experience"
             className="mt-10 inline-flex items-center gap-3 font-display text-[9px] font-normal uppercase tracking-[0.22em] text-[#a0a0a0] underline decoration-[#a0a0a0]/50 underline-offset-[6px] transition-opacity hover:opacity-60 md:mt-12 md:text-[10px]"
           >
             Explore the Experience
