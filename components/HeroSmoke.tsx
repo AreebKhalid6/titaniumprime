@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useMemo } from "react";
 
 type SmokeParticle = {
   id: number;
@@ -15,27 +15,29 @@ type SmokeParticle = {
 const SMOKE_SRC = "/images/homesection/smoke-bright.png";
 const PARTICLE_COUNT = 22;
 
+/** Deterministic so server and client markup match without a post-mount update. */
+function pseudoRandom(seed: number) {
+  const x = Math.sin(seed * 12.9898) * 43758.5453;
+  return x - Math.floor(x);
+}
+
 function makeParticle(id: number): SmokeParticle {
-  const size = 220 + Math.random() * 380;
   return {
     id,
-    left: 48 + Math.random() * 52,
-    bottom: -15 + Math.random() * 40,
-    size,
-    duration: 8 + Math.random() * 7,
-    delay: Math.random() * -12,
-    opacity: 0.35 + Math.random() * 0.45,
+    left: 48 + pseudoRandom(id) * 52,
+    bottom: -15 + pseudoRandom(id + 100) * 40,
+    size: 220 + pseudoRandom(id + 200) * 380,
+    duration: 8 + pseudoRandom(id + 300) * 7,
+    delay: pseudoRandom(id + 400) * -12,
+    opacity: 0.35 + pseudoRandom(id + 500) * 0.45,
   };
 }
 
 export default function HeroSmoke() {
-  const [particles, setParticles] = useState<SmokeParticle[]>([]);
-
-  useEffect(() => {
-    setParticles(
-      Array.from({ length: PARTICLE_COUNT }, (_, i) => makeParticle(i + 1)),
-    );
-  }, []);
+  const particles = useMemo(
+    () => Array.from({ length: PARTICLE_COUNT }, (_, i) => makeParticle(i + 1)),
+    []
+  );
 
   return (
     <div className="hero-smoke-viewport" aria-hidden>

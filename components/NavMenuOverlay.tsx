@@ -12,6 +12,8 @@ const MENU_LINKS = [
   { label: "About", href: "/about" },
   { label: "The Experience", href: "/the-experience" },
   { label: "The Arrival", href: "/the-arrival" },
+  { label: "The Room", href: "/the-room" },
+  { label: "The Service", href: "/the-service" },
 ] as const;
 
 type NavMenuOverlayProps = {
@@ -82,7 +84,7 @@ export default function NavMenuOverlay({ open, onClose }: NavMenuOverlayProps) {
           </div>
 
           {/* Links */}
-          <nav className="flex flex-1 flex-col items-center justify-center gap-6 px-6 md:gap-8">
+          <nav className="flex flex-1 flex-col items-center justify-center gap-3 px-6 md:gap-4">
             {MENU_LINKS.map((link, i) => (
               <motion.div
                 key={link.href}
@@ -100,10 +102,10 @@ export default function NavMenuOverlay({ open, onClose }: NavMenuOverlayProps) {
                   onClick={onClose}
                   className="group relative block text-center"
                 >
-                  <span className="font-display block text-[22px] font-extralight uppercase tracking-[0.3em] text-white/85 transition-colors duration-500 group-hover:text-white md:text-[30px] md:tracking-[0.34em] lg:text-[36px]">
+                  <span className="font-display block text-[19px] font-extralight uppercase leading-[1.3] tracking-[0.28em] text-white/85 transition-colors duration-500 group-hover:text-white md:text-[24px] md:tracking-[0.3em] lg:text-[28px]">
                     {link.label}
                   </span>
-                  <span className="mx-auto mt-3 block h-px w-0 bg-[#b89b62] transition-all duration-700 ease-out group-hover:w-full" />
+                  <span className="mx-auto mt-1.5 block h-px w-0 bg-[#b89b62] transition-all duration-700 ease-out group-hover:w-full" />
                 </Link>
               </motion.div>
             ))}

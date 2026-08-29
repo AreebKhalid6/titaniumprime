@@ -6,8 +6,6 @@ import ExperienceSection from "@/components/ExperienceSection";
 import FilmSection from "@/components/FilmSection";
 import VideoStrip from "@/components/VideoStrip";
 import NightsSection from "@/components/NightsSection";
-import PrivateSection from "@/components/PrivateSection";
-import Gallery from "@/components/Gallery";
 import Footer from "@/components/Footer";
 
 export default function Home() {
